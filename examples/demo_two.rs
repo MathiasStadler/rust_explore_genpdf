@@ -1,6 +1,6 @@
 // FROM HERE
 // https://users.rust-lang.org/t/genpdf-print-straight-line-with-colour/92040/3
-
+// https://github.com/liberationfonts/liberation-fonts/releases/tag/2.1.5
 use genpdf::{
     elements,
     fonts::{self},
@@ -9,7 +9,7 @@ use genpdf::{
 
 fn main() {
     let mut doc = genpdf::Document::new(
-        fonts::from_files("fonts/liberation", "LiberationSans", None).unwrap(),
+        fonts::from_files("./examples/fonts/liberation/liberation-fonts-ttf-2.1.5", "LiberationSans", None).unwrap(),
     );
 
     doc.set_title("Test");
