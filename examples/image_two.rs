@@ -39,7 +39,7 @@ fn main() {
             .expect("Failed to load the default font family");
 
     let mut doc = genpdf::Document::new(default_font);
-    doc.set_title("gen--features="embedded_images"pdf Demo Document");
+    doc.set_title("pdf Demo Document");
     doc.set_minimal_conformance();
     doc.set_line_spacing(1.25);
 
@@ -104,7 +104,7 @@ fn main() {
             row.push_element(
                 img.clone()
                     .with_scale(genpdf::Scale::new(*scale, *scale))
-                    .framed(style::Style::new())
+                    // .framed(style::Style::new())
                     .padded(1),
             );
         }
@@ -133,13 +133,13 @@ fn main() {
         pos_row.push(Box::new(
             img.clone()
                 .with_clockwise_rotation(rot)
-                .framed(style::Style::new())
+                //.framed(style::Style::new())
                 .padded(1),
         ));
         neg_row.push(Box::new(
             img.clone()
                 .with_clockwise_rotation(rot * -1.0)
-                .framed(style::Style::new())
+                //.framed(style::Style::new())
                 .padded(1),
         ));
     }
