@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: CC0-1.0
 
 use std::env;
+use printpdf::*;
 
 use genpdf::Alignment;
 use genpdf::Element as _;
@@ -9,6 +10,7 @@ use genpdf::Element as _;
 use genpdf::elements;
 use genpdf::fonts;
 use genpdf::style;
+
 
 
 const FONT_DIRS: &[&str] = &[
@@ -103,7 +105,7 @@ fn main() {
             row.push_element(
                 img.clone()
                     .with_scale(genpdf::Scale::new(*scale, *scale))
-                    .framed(style::LineStyle::new())
+                    //.framed(style::LineStyle::new())
                     .padded(1),
             );
         }

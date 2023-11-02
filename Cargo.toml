@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 genpdf = "0.2.0"
+lopdf = "0.31.0"
+printpdf = "0.6.0"

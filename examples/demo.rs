@@ -13,11 +13,21 @@
 //! The generated document using the latest `genpdf-rs` release is available
 //! [here](https://genpdf-rs.ireas.org/examples/demo.pdf).
 
+/*
 use std::env;
 
 use genpdf::Alignment;
 use genpdf::Element as _;
 use genpdf::{elements, fonts, style};
+*/
+use std::env;
+
+use genpdf::{
+    elements,
+    fonts::{self},
+    // style, Alignment, Element, Position, RenderResult, Size,
+    style, Alignment, Element,
+};
 
 const FONT_DIRS: &[&str] = &[
     "/usr/share/fonts/liberation",
@@ -184,12 +194,14 @@ fn main() {
         "You already saw lists and formatted centered text. Here are some other examples:",
     ));
     doc.push(elements::Paragraph::new("This is right-aligned text.").aligned(Alignment::Right));
+    /*
     doc.push(
         elements::Paragraph::new("And this paragraph has a frame drawn around it and is colored.")
             .padded(genpdf::Margins::vh(0, 1))
             .framed(style::LineStyle::from(style::Color::Rgb(0, 0, 255)).with_thickness(0.3))
             .styled(red),
     );
+    */
     doc.push(
         elements::Paragraph::new("You can also use other fonts if you want to.").styled(monospace),
     );
@@ -242,8 +254,8 @@ fn main() {
     let list_layout = elements::LinearLayout::vertical()
         .element(elements::Paragraph::new(
             "Of course, you can use all other elements inside a table.",
-        ))
-        .element(
+        ));
+        /*.element(
             elements::UnorderedList::new()
                 .element(elements::Paragraph::new("Even lists!"))
                 .element(
@@ -251,7 +263,8 @@ fn main() {
                         .padded(genpdf::Margins::vh(0, 1))
                         .framed(style::LineStyle::new()),
                 ),
-        );
+            
+        );*/
     table
         .row()
         .element(
@@ -269,7 +282,7 @@ fn main() {
         "Now let’s print a long table to demonstrate how page wrapping works:",
     ));
 
-    let mut table = elements::TableLayout::new(vec![1, 5]);
+    let mut table = elements::TableLayout::new(vec![1, 5 ,]);
     table.set_cell_decorator(elements::FrameCellDecorator::new(true, true, false));
     table
         .row()
