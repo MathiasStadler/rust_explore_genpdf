@@ -6,9 +6,9 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-genpdf = "0.2.0"
-# printpdf = "0.6.0"
-printpdf = { version = "0.6.0", features = ["images"] }
+# genpdf = "0.2.0"
+printpdf = "0.6.0"
+genpdf = { version = "0.2.0", features = ["images"] }
 ###
 
 ##
@@ -58,5 +58,7 @@ font_subsetting = ["dep:allsorts"]
 annotations = ["pdf-writer"]
 
 [[example]]
-name = "image"
-required-features = ["embedded_images"]
+name = "image_two"
+#required-features = ["embedded_images"]
+features = ["embedded_images"]
+                      
